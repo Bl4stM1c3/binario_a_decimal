@@ -1,0 +1,22 @@
+#Posible solucion al ejercicio 39 de https://retosdeprogramacion.com/ejercicios/
+#Crea un programa se encargue de transformar un número binario
+# * a decimal sin utilizar funciones propias del lenguaje que
+# * lo hagan directamente.
+
+def binario_a_decimal(numero_binario):
+  #Declaramos las variables
+  decimal = 0
+  binario = str(numero_binario) #Convertimos el numero binario en str iterable
+
+  #Establecemos un filtro que compruebe que el número introducido es un número binario
+  if all(digito in "01" for digito in binario):
+    for i, d in enumerate(binario[::-1]):
+      decimal += (int(d) * (2 ** i)) #ej: numero_binario = 1010 -> decimal = 0*2**0 + 1*2**1 + 0*2**2 + 1*2**3 = 10
+    return decimal
+  else:
+    return "El número introducido NO es un número binario!!"
+
+
+#EJEMPLO DE USO
+numero_binario = 1010
+binario_a_decimal(numero_binario)
